@@ -1,0 +1,52 @@
+﻿@*//10 این ویو مجموعه ای(IEnumerable) از مکانها رو دریافت میکنه
+    *@
+
+@model IEnumerable<MyProject.Models.Pagesloc>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    //
+    <title>Index</title>
+    <link href="/content/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    طق دیدنی
+    <table class="C_table">
+        <caption class="C_caption">لیست مکانهای دیدنی</caption>
+        <thead class="C_thead">
+            <tr>
+                <th>کد لوکیشن</th>
+                <th> نام مکان </th>
+                <th>توضیحات مکان دیدنی</th>
+                <th>عنوان مکان دیدنی</th>
+                <th>تگ های مرتبط</th>
+                <th>مکان متعلق به شهر </th>
+            </tr>
+        </thead>
+    //ساخت جدول برای تک تک لوکیشنها و منا
+        <tbody>
+            //برای نمایش تعداد نامشخص لوکیشن ها از فور ایچ
+            @foreach (var loc in Model)
+            {
+                <tr>
+                    <td>@loc.PageID</td>
+                    <td>@loc.Title</td>
+                    <td>@loc.ShortDescription</td>
+                    <td>@loc.Text</td>
+                    <td>@loc.Tags</td>
+                    <td>@loc.GroupID</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</body>
+</html>  
